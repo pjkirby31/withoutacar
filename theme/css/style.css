@@ -624,7 +624,8 @@ ul.dropdown-menu li {
 
 .banner-3 {
   background: url("../images/banner/New-Internationlist-Car-Free-Cities.jpg");
-  background-size: cover;
+
+  background-size: 1500px;
   position: relative;
 }
 
