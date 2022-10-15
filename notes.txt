@@ -1,0 +1,20 @@
+Info:
+
+1. Google Maps API
+  a. https://developers.google.com/maps/documentation/directions/get-directions#mode
+  b. EX. https://maps.googleapis.com/maps/api/directions/json?origin=Disneyland&destination=Universal+Studios+Hollywood&key=AIzaSyALkVbxT1glbbW0tTp-IrAFye3q5i5PfXY&mode=walking|driving
+  c. Subscription Key: AIzaSyALkVbxT1glbbW0tTp-IrAFye3q5i5PfXY
+  d. Modes: driving, walking, bicycling, transit
+    d.I. There are sub-modes for transit but we can just do transit for right now
+    
+2. Project Email: withoutacar.org@gmail.com
+
+Patrick's To-do:
+1. Make basic Flask project on azure server
+2. Change flask to run on one of the open ports, or just open port 5000
+  a. If I use port 5000 then close both 80 and 443
+3. Set up server in VSCode so I can edit code right from there
+4. Get google maps api working on the server
+5. Do data processing with the response and calculate time saved, gas saved, CO2 emissions, etc.
+6. maybe just do all development locally and then push it to github and then push github to azure
+
