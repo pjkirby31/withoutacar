@@ -1742,4 +1742,11 @@ BLOG SINGLE
     margin-bottom: 30px;
   }
 }
+.pac-container{
+  font-family: "Rubik", sans-serif;
+  font-size: 18px;
+}
+#home_address {
+  width:500px;
+}
 /*# sourceMappingURL=style.css.map */

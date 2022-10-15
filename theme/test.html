@@ -1,0 +1,14 @@
+<html>
+    <body>
+        <input type="text" id="location">
+        <button onClick="start()">test</button>
+    </body>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALkVbxT1glbbW0tTp-IrAFye3q5i5PfXY&libraries=places"></script>
+    <script>
+        function start(){
+            var auto = document.getElementById("location");
+            var autocomplete = new google.maps.places.Autocomplete(auto);
+
+        }
+    </script>
+</html>
