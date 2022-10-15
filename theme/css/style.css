@@ -1749,4 +1749,13 @@ BLOG SINGLE
 #home_address {
   width:500px;
 }
+.address {
+  width: 500px;
+}
+.tpw{
+  width:150px;
+  margin-left:50px;
+  margin-right: 50px;
+}
+
 /*# sourceMappingURL=style.css.map */
