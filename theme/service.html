@@ -324,8 +324,8 @@
 
       function doSecondStep() {
         var mpg = document.getElementById("car_mpg_input");
-        console.log(mpg);
-        localStorage.setItem("mpg", mpg + "");
+        console.log(mpg.value);
+        localStorage.setItem("mpg", mpg.value);
         var div = document.createElement("div");
         div.id = "main_box";
 
@@ -402,14 +402,17 @@
           json_body["mpg"] = localStorage.getItem("mpg");
           json_body["travel"] = travel;
 
-          var post_body = JSON.parse(json_body);
+          console.log(json_body);
+          var post_string = JSON.stringify(json_body);
+          console.log(post_string);
+          var post_body = JSON.parse(post_string);
 
           fetch("http://withoutacar-backend.westus3.cloudapp.azure.com:5000/generate", {
-            method: 'GET',
+            method: 'POST',
             headers: {
               'Content-Type': 'application/json',
             },
-            body: post_body,
+            body: post_string,
           })
           .then((response) => response.json())
           .then((data) => 
