@@ -614,7 +614,7 @@ ul.dropdown-menu li {
 }
 
 .banner-1 {
-  background: url("../images/banner/bg-2.jpg");
+  background: url("../images/banner/New-Internationlist-Car-Free-Cities.jpg");
   background-size: cover;
   position: relative;
 }
@@ -862,7 +862,7 @@ HISTORY MISSION
   SERVICE AREA SECTION
 ----------------------*/
 .page-banner-area.page-service {
-  background: url("../images/bg/bg-2.jpg") no-repeat;
+  background: url("../images/banner/New-Internationlist-Car-Free-Cities.jpg") no-repeat;
   background-size: cover;
 }
 
@@ -919,6 +919,9 @@ HISTORY MISSION
 
 .service-inner span {
   color: #635CDB;
+}
+.service-title h1 {
+  color: white;
 }
 
 /* ================================
