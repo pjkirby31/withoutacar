@@ -1760,5 +1760,8 @@ BLOG SINGLE
   margin-left:50px;
   margin-right: 50px;
 }
-
+.report_icon{
+  font-size: 275%;
+  padding-right:10px;
+}
 /*# sourceMappingURL=style.css.map */

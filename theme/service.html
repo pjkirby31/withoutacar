@@ -176,6 +176,7 @@
         div.id = "main_box";
 
         var add_more = document.createElement("button");
+        add_more.id = "add_more";
         add_more.textContent = "Add another location";
         add_more.className = "btn btn-white btn-circled";
         add_more.height = "50px";
@@ -184,6 +185,7 @@
         }
 
         var submit = document.createElement("button");
+        submit.id = "gen_report";
         submit.textContent = "Generate Report";
         submit.className = "btn btn-white btn-circled";
         submit.height = "50px";
@@ -276,17 +278,22 @@
             }
             report.appendChild(journey);
 
+            var counters = document.createElement("div");
+            counters.style.width = "100%";
+            counters.className = "row";
+            counters.style.borderEndEndRadius = "10px";
+
             var emissions = document.createElement("div");
             emissions.style.background = "white";
-            emissions.className = "col-lg-3 col-sm-6 col-md-6";
+            emissions.className = "col-lg-4 col-sm-6 col-md-6";
             var emissions_stat = document.createElement("div");
             emissions_stat.className = "counter_stat";
             var emission_icon = document.createElement("i");
-            emission_icon.className = "icofont-pollution";
+            emission_icon.className = "icofont-pollution report_icon";
             var emission_span = document.createElement("span");
             emission_span.className = "counter";
             emission_span.setAttribute("data-count",data["emissions"]);
-            emissions.textContent = data["emissions"];
+            //emissions.textContent = data["emissions"];
             var emissions_header = document.createElement("h5");
             emissions_header.textContent = "Pounds of CO2 saved";
             emissions.appendChild(emissions_stat);
@@ -294,49 +301,52 @@
             emissions.appendChild(emission_span);
             emissions.appendChild(emissions_header);
 
-            report.appendChild(emissions);
+            counters.appendChild(emissions);
 
             emissions = document.createElement("div");
             emissions.style.background = "white";
-            emissions.className = "col-lg-3 col-sm-6 col-md-6";
+            emissions.className = "col-lg-4 col-sm-6 col-md-6";
             emissions_stat = document.createElement("div");
             emissions_stat.className = "counter_stat";
             emission_icon = document.createElement("i");
-            emission_icon.className = "icofont-cycling-alt";
+            emission_icon.className = "icofont-cycling-alt report_icon";
             emission_span = document.createElement("span");
             emission_span.className = "counter";
             emission_span.setAttribute("data-count",data["alt_time"] / 60);
-            emissions.textContent = data["alt_time"] / 60;
+            //emissions.textContent = data["alt_time"] / 60;
             emissions_header = document.createElement("h5");
-            emissions_header.textContent = "Extra time alternate transportation takes";
+            emissions_header.textContent = "Minutes of extra time traveling takes";
             emissions.appendChild(emissions_stat);
             emissions.appendChild(emission_icon);
             emissions.appendChild(emission_span);
             emissions.appendChild(emissions_header);
 
-            report.appendChild(emissions);
+            counters.appendChild(emissions);
 
             emissions = document.createElement("div");
             emissions.style.background = "white";
-            emissions.className = "col-lg-3 col-sm-6 col-md-6";
+            emissions.className = "col-lg-4 col-sm-6 col-md-6";
             emissions_stat = document.createElement("div");
             emissions_stat.className = "counter_stat";
             emission_icon = document.createElement("i");
-            emission_icon.className = "icofont-dollar";
+            emission_icon.className = "icofont-dollar report_icon";
             emission_span = document.createElement("span");
             emission_span.className = "counter";
             emission_span.setAttribute("data-count",data["gas_cost"]);
-            emissions.textContent = data["gas_cost"];
+            //emissions.textContent = data["gas_cost"];
             emissions_header = document.createElement("h5");
-            emissions_header.textContent = "Pounds of CO2 saved";
+            emissions_header.textContent = "Dollars saved on gas";
             emissions.appendChild(emissions_stat);
             emissions.appendChild(emission_icon);
             emissions.appendChild(emission_span);
             emissions.appendChild(emissions_header);
 
-            report.appendChild(emissions);
+            counters.appendChild(emissions);
+            report.appendChild(counters);
 
             document.getElementById("main_box").remove();
+            document.getElementById("add_more").remove();
+            document.getElementById("gen_report").remove();
             document.getElementById("form_section").appendChild(report);
           });
         }
