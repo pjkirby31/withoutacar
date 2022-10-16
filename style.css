@@ -1782,4 +1782,11 @@ BLOG SINGLE
   background-color: grey;
   border-radius: 0px;
 }
+.custom_h2 {
+  color: white;
+  margin-top:25px;
+}
+#form_section {
+  margin-top: 50px;
+}
 /*# sourceMappingURL=style.css.map */
