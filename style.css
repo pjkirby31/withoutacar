@@ -1775,4 +1775,11 @@ BLOG SINGLE
   color: white;
   margin-bottom: 75px;
 }
+.btn-white {
+  color: white;
+}
+.btn-white:hover {
+  background-color: grey;
+  border-radius: 0px;
+}
 /*# sourceMappingURL=style.css.map */

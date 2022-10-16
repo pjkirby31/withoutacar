@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+
+<!--
+ // WEBSITE: https://themefisher.com
+ // TWITTER: https://twitter.com/themefisher
+ // FACEBOOK: https://www.facebook.com/themefisher
+ // GITHUB: https://github.com/themefisher/
+-->
+
+<html lang="en">
+  <head>
+
+    <!-- ** Basic Page Needs ** -->
+    <meta charset="utf-8">
+    <title>withoutacar</title>
+  
+    <!-- ** Mobile Specific Metas ** -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="WashU Hackathon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="author" content="Template by Themefisher">
+  <meta name="generator" content="withoutacarwebsite">
+  
+    <!-- bootstrap.min css -->
+    <link rel="stylesheet" href="theme/plugins/bootstrap/bootstrap.min.css">
+    <!-- fontawesome css -->
+    <link rel="stylesheet" href="theme/plugins/fontawesome/css/all.css">
+    <!-- Icofont -->
+    <link rel="stylesheet" href="theme/plugins/icofont/icofont.css">
+  
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="theme/css/style.css">
+  
+    <!--Favicon-->
+    <link rel="icon" href="theme/images/favicon.png" type="image/x-icon">
+  
+  </head>
+<body data-spy="scroll" data-target="#mainNav" onload='fixAutocomplete();'>
+
+<!--MAIN HEADER AREA END -->
+<!--MAIN BANNER AREA START -->
+<div class="bg-feature" id="page-banner">
+  <h1 class="banner-title service-title text-center " style="color: white;"> Start your life without a car!</h1>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-12 m-auto text-center col-sm-12 col-md-12">
+        <div class="banner-content section-padding">
+          <div id = "form_section">
+            <div id="step_one">
+              <p>Please input your address</p>
+              <input type="text" id="home_address" class="address_input">
+              <div><button id="next_step" onClick="nextStep();" class="btn btn-white btn-circled">Next</button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--MAIN HEADER AREA END ------------------------------------------------------------->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+  <meta charset="utf-8">
+  <title>Promodise - Startup Business Bootstrap Template</title>
+
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Business Bootstrap Template">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="author" content="Themefisher">
+  <meta name="generator" content="Themefisher Promodise Template v1.0">
+
+
+  <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+  
+  <link rel="stylesheet" href="plugins/fontawesome/css/all.css">
+
+  <link rel="stylesheet" href="plugins/icofont/icofont.css">
+
+
+  <link rel="stylesheet" href="css/style.css">
+
+ 
+  <link rel="icon" href="theme/images/favicon.png" type="image/x-icon">
+
+</head><body data-spy="scroll" data-target="#mainNav"> -->
+
+
+<!--MAIN HEADER AREA END -->
+
+
+<!--  FOOTER AREA START  -->
+<section id="footer" class="section-padding">
+  <div class="container">
+    <div class="row justify-content-around">
+      <div class="col-lg-3 col-md-4 col-sm-12">
+        <div class="footer-widget footer-text">
+          <h4>Our location</h4>
+          <p class="mail"><span>Mail:</span> withoutacar.org@gmail.com</p>
+          <p><span>Location:</span> Washington University in St. Louis</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <div class="footer-copy">
+          Copyright &copy; 2022, Designed &amp; Developed by Patrick, Praneel and Xander.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--  FOOTER AREA END  -->
+
+
+
+    <!--
+    Essential Scripts
+    =====================================-->
+
+
+    <!-- Main jQuery -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap css -->
+    <script src="plugins/bootstrap/bootstrap.min.js"></script>
+
+    <!-- Google Map -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU"></script>
+    <script src="plugins/google-map/map.js"></script>
+
+    <!-- main script -->
+    <script src="script.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALkVbxT1glbbW0tTp-IrAFye3q5i5PfXY&libraries=places"></script>
+    <script>
+      function fixAutocomplete(){
+        var address = document.getElementById("home_address");
+        var autocomplete = new google.maps.places.Autocomplete(address);
+      }
+      function nextStep(){
+        var home_address = document.getElementById("home_address").value;
+        console.log(home_address);
+        localStorage.setItem("home_address", home_address);
+        var div = document.createElement("div");
+        div.id = "car_mpg";
+        var p = document.createElement("p");
+        p.textContent = "Please input your car's MPG so we can estimate your gas usage";
+        var input = document.createElement("input");
+        input.id = "car_mpg_input";
+        input.type="text";
+        var btn = document.createElement("button");
+        btn.textContent="Next Step";
+        btn.className = "btn btn-white btn-circled";
+        btn.onclick = function(){
+          doSecondStep();
+        };
+        var second_div = document.createElement("div");
+        second_div.appendChild(btn);
+        div.appendChild(p);
+        div.appendChild(input);
+        div.appendChild(second_div);
+        document.getElementById("step_one").remove();
+        document.getElementById("form_section").appendChild(div);
+
+      }
+
+      function doSecondStep() {
+        var mpg = document.getElementById("car_mpg_input");
+        console.log(mpg.value);
+        localStorage.setItem("mpg", mpg.value);
+        var div = document.createElement("div");
+        div.id = "main_box";
+
+        var add_more = document.createElement("button");
+        add_more.id = "add_more";
+        add_more.textContent = "Add another location";
+        add_more.className = "btn btn-white btn-circled";
+        add_more.height = "50px";
+        add_more.onclick = function() {
+          addLocation();
+        }
+
+        var submit = document.createElement("button");
+        submit.id = "gen_report";
+        submit.textContent = "Generate Report";
+        submit.className = "btn btn-white btn-circled";
+        submit.height = "50px";
+        submit.onclick = function() {
+          generateReport();
+        }
+
+        document.getElementById("car_mpg").remove();
+        document.getElementById("form_section").appendChild(div);
+        document.getElementById("form_section").appendChild(add_more);
+        document.getElementById("form_section").appendChild(submit);
+        addLocation();
+      }
+
+      function addLocation() {
+        var div = document.createElement("div");
+        var place_input = document.createElement("input");
+        place_input.type = "text";
+        place_input.className = "address";
+
+        var tpw_input = document.createElement("input");
+        tpw_input.type = "number";
+        tpw_input.placeholder = "Number of visits"
+        tpw_input.className = "form-control";
+        tpw_input.className = "tpw";
+        tpw_input.width = "150%";
+
+        var icon = document.createElement("i");
+        icon.className = "bi bi-trash3-fill";
+        icon.style.color = "white";
+        icon.style.fontSize = "200%";
+
+        var deleteBtn = document.createElement("button");
+        deleteBtn.appendChild(icon);
+        deleteBtn.style.marginTop = "-8px";
+        deleteBtn.className = "btn";
+        deleteBtn.onclick = function(option){
+          console.log(option);
+          option.target.parentElement.parentElement.remove();
+        }
+
+        div.appendChild(place_input);
+        div.appendChild(tpw_input);
+        div.appendChild(deleteBtn);
+        document.getElementById("main_box").appendChild(div);
+        new google.maps.places.Autocomplete(place_input);
+
+        }
+
+        function generateReport() {
+          var children = document.getElementById("main_box").children;
+          var travel = [];
+          for(var i = 0; i < children.length; i++){
+            var div = children[i];
+            var address = div.children[0].value;
+            var tpw = div.children[1].value;
+            var place = {};
+            place["address"] = address;
+            place["tpw"] = tpw;
+            travel.push(place);
+          }
+          var json_body = {};
+          json_body["address"] = localStorage.getItem("home_address");
+          json_body["mpg"] = localStorage.getItem("mpg");
+          json_body["travel"] = travel;
+
+          console.log(json_body);
+          var post_string = JSON.stringify(json_body);
+          console.log(post_string);
+          var post_body = JSON.parse(post_string);
+
+          fetch("http://20.163.24.32:5000/generate", {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: post_string,
+          })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            var report = document.createElement("div");
+            var journey = document.createElement("div");
+            travels = data["travels"]
+            for(var i =0; i < travels.length; i++) {
+              var place = document.createElement("div");
+              place.className = "row journey";
+              var address = document.createElement("div");
+              address.className = "col-12";
+              var address_icon = document.createElement("i");
+              if(travels[i]["mode"] == "Walk"){
+                address_icon.className = "report_icons icofont-runner";
+              }
+              else if(travels[i]["mode"] == "Bike"){
+                address_icon.className = "report_icons icofont-cycling-alt";
+              }
+              else {
+                address_icon.className = "report_icons icofont-bus";
+              }
+              var address_text = document.createElement('span');
+              address_text.textContent = travels[i]["address"];
+              address_text.style.fontSize = "34px";
+              address.appendChild(address_icon);
+              address.appendChild(address_text);
+
+              var mode = document.createElement("div");
+              mode.className = "col-4";
+              mode.textContent = "Mode: " + travels[i]["mode"];
+              mode.style.fontSize = "18px";
+              mode.style.textAlign = "right";
+
+              var time = document.createElement("div");
+              time.className = "col-4";
+              time.textContent = travels[i]["mode"] + " Travel Time: " + travels[i]["time"] + " minutes";
+              time.style.fontSize = "18px";
+              //time.style.textAlign = "left";
+
+              var car_time = document.createElement("div");
+              car_time.className = "col-4";
+              car_time.textContent = "Car Travel Time: " + travels[i]["car_time"] + " minutes";
+              car_time.style.fontSize = "18px";
+              car_time.style.textAlign = "left";
+
+              //var info = document.createElement("p");
+              //info.textContent = "Address: " + travels[i]["address"] + " Mode: " + travels[i]["mode"] +
+              //" Time: " + (travels[i]["time"]) + " minutes";
+              place.appendChild(address);
+              place.appendChild(mode);
+              place.appendChild(time);
+              place.appendChild(car_time);
+              journey.appendChild(place);
+            }
+            report.appendChild(journey);
+
+            var counters = document.createElement("div");
+            counters.style.width = "100%";
+            counters.className = "row";
+            counters.style.borderEndEndRadius = "10px";
+
+            var emissions = document.createElement("div");
+            emissions.style.background = "white";
+            emissions.className = "col-lg-4 col-sm-6 col-md-6";
+            var emissions_stat = document.createElement("div");
+            emissions_stat.className = "counter_stat";
+            var emission_icon = document.createElement("i");
+            emission_icon.className = "icofont-pollution report_icon";
+            var emission_span = document.createElement("span");
+            emission_span.className = "counter";
+            emission_span.setAttribute("data-count",data["emissions"]);
+            //emissions.textContent = data["emissions"];
+            var emissions_header = document.createElement("h5");
+            emissions_header.textContent = "Pounds of CO2 saved";
+            emissions.appendChild(emissions_stat);
+            emissions.appendChild(emission_icon);
+            emissions.appendChild(emission_span);
+            emissions.appendChild(emissions_header);
+
+            counters.appendChild(emissions);
+
+            emissions = document.createElement("div");
+            emissions.style.background = "white";
+            emissions.className = "col-lg-4 col-sm-6 col-md-6";
+            emissions_stat = document.createElement("div");
+            emissions_stat.className = "counter_stat";
+            emission_icon = document.createElement("i");
+            emission_icon.className = "icofont-cycling-alt report_icon";
+            emission_span = document.createElement("span");
+            emission_span.className = "counter";
+            emission_span.setAttribute("data-count",data["alt_time"] - data["car_time"]);
+            //emissions.textContent = data["alt_time"] / 60;
+            emissions_header = document.createElement("h5");
+            emissions_header.textContent = "Minutes of extra traveling";
+            emissions.appendChild(emissions_stat);
+            emissions.appendChild(emission_icon);
+            emissions.appendChild(emission_span);
+            emissions.appendChild(emissions_header);
+
+            counters.appendChild(emissions);
+
+            emissions = document.createElement("div");
+            emissions.style.background = "white";
+            emissions.className = "col-lg-4 col-sm-6 col-md-6";
+            emissions_stat = document.createElement("div");
+            emissions_stat.className = "counter_stat";
+            emission_icon = document.createElement("i");
+            emission_icon.className = "icofont-dollar report_icon";
+            emission_span = document.createElement("span");
+            emission_span.className = "counter";
+            emission_span.setAttribute("data-count",data["gas_cost"]);
+            //emissions.textContent = data["gas_cost"];
+            emissions_header = document.createElement("h5");
+            emissions_header.textContent = "Dollars saved on gas";
+            emissions.appendChild(emissions_stat);
+            emissions.appendChild(emission_icon);
+            emissions.appendChild(emission_span);
+            emissions.appendChild(emissions_header);
+
+            counters.appendChild(emissions);
+            report.appendChild(counters);
+
+            document.getElementById("main_box").remove();
+            document.getElementById("add_more").remove();
+            document.getElementById("gen_report").remove();
+            document.getElementById("form_section").appendChild(report);
+          });
+        }
+
+    </script>
+  </body>
+  </html>
