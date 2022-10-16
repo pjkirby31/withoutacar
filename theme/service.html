@@ -208,8 +208,10 @@
 
         var tpw_input = document.createElement("input");
         tpw_input.type = "number";
+        tpw_input.placeholder = "Number of visits"
         tpw_input.className = "form-control";
         tpw_input.className = "tpw";
+        tpw_input.width = "150%";
 
         var icon = document.createElement("i");
         icon.className = "bi bi-trash3-fill";
@@ -270,10 +272,43 @@
             travels = data["travels"]
             for(var i =0; i < travels.length; i++) {
               var place = document.createElement("div");
-              var info = document.createElement("p");
-              info.textContent = "Address: " + travels[i]["address"] + " Mode: " + travels[i]["mode"] +
-              " Time: " + (travels[i]["time"] / 60) + " minutes";
-              place.appendChild(info);
+              place.className = "row journey";
+              var address = document.createElement("div");
+              address.className = "col-12";
+              var address_icon = document.createElement("i");
+              if(travels[i]["mode"] == "walk"){
+                address_icon.className = "report_icons icofont-runner";
+              }
+              else if(travels[i]["mode"] == "bike"){
+                address_icon.className = "report_icons icofont-cycling-alt";
+              }
+              else {
+                address_icon.className = "report_icons icofont-bus";
+              }
+              var address_text = document.createElement('span');
+              address_text.textContent = travels[i]["address"];
+              address_text.style.fontSize = "34px";
+              address.appendChild(address_icon);
+              address.appendChild(address_text);
+
+              var mode = document.createElement("div");
+              mode.className = "col-6";
+              mode.textContent = "Mode: " + travels[i]["mode"];
+              mode.style.fontSize = "18px";
+              mode.style.textAlign = "right";
+
+              var time = document.createElement("div");
+              time.className = "col-6";
+              time.textContent = "Travel Time: " + travels[i]["time"] + " minutes";
+              time.style.fontSize = "18px";
+              time.style.textAlign = "left";
+
+              //var info = document.createElement("p");
+              //info.textContent = "Address: " + travels[i]["address"] + " Mode: " + travels[i]["mode"] +
+              //" Time: " + (travels[i]["time"]) + " minutes";
+              place.appendChild(address);
+              place.appendChild(mode);
+              place.appendChild(time);
               journey.appendChild(place);
             }
             report.appendChild(journey);
@@ -312,7 +347,7 @@
             emission_icon.className = "icofont-cycling-alt report_icon";
             emission_span = document.createElement("span");
             emission_span.className = "counter";
-            emission_span.setAttribute("data-count",data["alt_time"] / 60);
+            emission_span.setAttribute("data-count",data["alt_time"]);
             //emissions.textContent = data["alt_time"] / 60;
             emissions_header = document.createElement("h5");
             emissions_header.textContent = "Minutes of extra time traveling takes";

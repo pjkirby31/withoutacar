@@ -1764,4 +1764,15 @@ BLOG SINGLE
   font-size: 275%;
   padding-right:10px;
 }
+.report_icons{
+  font-size: 275%;
+  padding-right:50px;
+}
+.journey {
+  border: white;
+  border-width: 5px;
+  border-radius: 15px;
+  color: white;
+  margin-bottom: 75px;
+}
 /*# sourceMappingURL=style.css.map */
