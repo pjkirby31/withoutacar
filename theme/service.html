@@ -407,7 +407,7 @@
           console.log(post_string);
           var post_body = JSON.parse(post_string);
 
-          fetch("http://withoutacar-backend.westus3.cloudapp.azure.com:5000/generate", {
+          fetch("http://20.163.24.32:5000/generate", {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -415,9 +415,84 @@
             body: post_string,
           })
           .then((response) => response.json())
-          .then((data) => 
-              console.log(data)
-          );
+          .then((data) => {
+            console.log(data);
+            var report = document.createElement("div");
+            var journey = document.createElement("div");
+            travels = data["travels"]
+            for(var i =0; i < travels.length; i++) {
+              var place = document.createElement("div");
+              var info = document.createElement("p");
+              info.textContent = "Address: " + travels[i]["address"] + " Mode: " + travels[i]["mode"] + 
+              " Time: " + (travels[i]["time"] / 60) + " minutes";
+              place.appendChild(info);
+              journey.appendChild(place);
+            }
+            report.appendChild(journey);
+
+            var emissions = document.createElement("div");
+            emissions.style.background = "white";
+            emissions.className = "col-lg-3 col-sm-6 col-md-6";
+            var emissions_stat = document.createElement("div");
+            emissions_stat.className = "counter_stat";
+            var emission_icon = document.createElement("i");
+            emission_icon.className = "icofont-pollution";
+            var emission_span = document.createElement("span");
+            emission_span.className = "counter";
+            emission_span.setAttribute("data-count",data["emissions"]);
+            emissions.textContent = data["emissions"];
+            var emissions_header = document.createElement("h5");
+            emissions_header.textContent = "Pounds of CO2 saved";
+            emissions.appendChild(emissions_stat);
+            emissions.appendChild(emission_icon);
+            emissions.appendChild(emission_span);
+            emissions.appendChild(emissions_header);
+
+            report.appendChild(emissions);
+
+            emissions = document.createElement("div");
+            emissions.style.background = "white";
+            emissions.className = "col-lg-3 col-sm-6 col-md-6";
+            emissions_stat = document.createElement("div");
+            emissions_stat.className = "counter_stat";
+            emission_icon = document.createElement("i");
+            emission_icon.className = "icofont-cycling-alt";
+            emission_span = document.createElement("span");
+            emission_span.className = "counter";
+            emission_span.setAttribute("data-count",data["alt_time"] / 60);
+            emissions.textContent = data["alt_time"] / 60;
+            emissions_header = document.createElement("h5");
+            emissions_header.textContent = "Extra time alternate transportation takes";
+            emissions.appendChild(emissions_stat);
+            emissions.appendChild(emission_icon);
+            emissions.appendChild(emission_span);
+            emissions.appendChild(emissions_header);
+
+            report.appendChild(emissions);
+
+            emissions = document.createElement("div");
+            emissions.style.background = "white";
+            emissions.className = "col-lg-3 col-sm-6 col-md-6";
+            emissions_stat = document.createElement("div");
+            emissions_stat.className = "counter_stat";
+            emission_icon = document.createElement("i");
+            emission_icon.className = "icofont-dollar";
+            emission_span = document.createElement("span");
+            emission_span.className = "counter";
+            emission_span.setAttribute("data-count",data["gas_cost"]);
+            emissions.textContent = data["gas_cost"];
+            emissions_header = document.createElement("h5");
+            emissions_header.textContent = "Pounds of CO2 saved";
+            emissions.appendChild(emissions_stat);
+            emissions.appendChild(emission_icon);
+            emissions.appendChild(emission_span);
+            emissions.appendChild(emissions_header);
+
+            report.appendChild(emissions);
+
+            document.getElementById("main_box").remove();
+            document.getElementById("form_section").appendChild(report);
+          });
         }
 
     </script>
